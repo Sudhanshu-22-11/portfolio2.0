@@ -886,8 +886,14 @@ article > header {
 
 .service-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+}
+
+@media (max-width: 820px) {
+  .service-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .service-item {
@@ -962,6 +968,191 @@ article > header {
 .service-tech-pill i,
 .service-tech-pill ion-icon {
   font-size: 14px;
+}
+
+/* -------------------------------------------------------------------------
+   Opportunities & Collaboration Section (Internships, Hackathons, Freelance)
+------------------------------------------------------------------------- */
+.goals-section {
+  margin-bottom: 35px;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .goals-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.goal-card {
+  background: var(--neu-surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-neu-raised);
+  border: 1px solid var(--neu-border);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-2);
+}
+
+.goal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px var(--shadow-neu-dark);
+}
+
+.goal-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 14px;
+  font-size: 11px;
+  font-weight: var(--fw-600);
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-pill);
+  border: 1px solid var(--neu-border-subtle);
+  color: var(--neu-text-bold);
+  width: fit-content;
+  margin-bottom: 14px;
+}
+
+.goal-card-badge .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.goal-image-header {
+  width: 100%;
+  height: 155px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-inset);
+  border: 1px solid var(--neu-border-subtle);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.goal-image-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-2);
+}
+
+.goal-card:hover .goal-image-header img {
+  transform: scale(1.05);
+}
+
+.goal-title {
+  font-size: 16px;
+  font-weight: var(--fw-700);
+  color: var(--neu-text-bold);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.goal-desc {
+  font-size: 13px;
+  color: var(--neu-text-muted);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.goal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.goal-tag {
+  font-size: 11px;
+  font-weight: var(--fw-500);
+  padding: 4px 10px;
+  border-radius: 10px;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-inset);
+  color: var(--neu-text);
+  border: 1px solid var(--neu-border-subtle);
+}
+
+.goal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-small);
+  border: 1px solid var(--neu-border);
+  color: var(--neu-accent);
+  font-size: 12px;
+  font-weight: var(--fw-600);
+  cursor: pointer;
+  transition: all var(--transition-1);
+}
+
+.goal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-neu-raised);
+}
+
+/* -------------------------------------------------------------------------
+   Technologies & Brand Logos Showcase Grid
+------------------------------------------------------------------------- */
+.tech-showcase-section {
+  margin-bottom: 35px;
+}
+
+.tech-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+  gap: 14px;
+}
+
+.tech-showcase-tile {
+  background: var(--neu-surface);
+  border-radius: 18px;
+  box-shadow: var(--shadow-neu-small);
+  border: 1px solid var(--neu-border);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all var(--transition-1);
+  cursor: default;
+}
+
+.tech-showcase-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-neu-raised);
+}
+
+.tech-showcase-tile i {
+  font-size: 32px;
+}
+
+.tech-showcase-tile span {
+  font-size: 12px;
+  font-weight: var(--fw-600);
+  color: var(--neu-text-bold);
+  text-align: center;
 }
 
 /*-----------------------------------*\
