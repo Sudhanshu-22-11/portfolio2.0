@@ -2405,7 +2405,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 @media (min-width: 768px) {
   .achievements-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 }
 

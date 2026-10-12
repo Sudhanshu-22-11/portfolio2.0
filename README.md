@@ -23,7 +23,7 @@
 - **3D Hero Visualization**: Interactive WebGL geometric polyhedron scene rendered with **Three.js**, with mouse-tracking parallax damping, ambient data node particles, and reduced-motion compliance.
 - **Categorized Technical Competencies**: Transparent skill presentation across Frontend (HTML5, CSS3, JavaScript, React - *Learning/Familiar*), Programming (Python, C), and Data Science libraries (Pandas, NumPy, Matplotlib).
 - **Featured Projects Showcase**: Filterable project gallery with live demo links, repository access, and tech stack tags.
-- **Honors & Achievements**: Spotlighting team accolades (Best Pitching Award — Team Anvay) and hackathons (Hack Fest 1.0).
+- **Honors & Achievements**: Spotlighting team accolades (Best Pitching Award — Team Anvay) and national-level hackathons (Hack Manlandu, Hack Fest 1.0).
 - **Certificate Inspection Modal**: Interactive viewer for the *AI Fluency for Students* certificate issued by **Anthropic** (in partnership with UCC, Ringling College, HEA, and National Forum).
 - **Interactive Contact Hub**: Mapbox integration for Shivamogga, Karnataka, a direct email composer, and quick clipboard utilities.
 
