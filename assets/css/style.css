@@ -697,6 +697,16 @@ article > header {
 
 .hero-profile-title .highlight {
   color: var(--neu-accent);
+  background: linear-gradient(120deg, var(--neu-accent) 0%, #ff8c42 50%, var(--neu-accent) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-highlight 5s linear infinite;
+}
+
+@keyframes shimmer-highlight {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 .hero-profile-subtitle {
@@ -704,6 +714,33 @@ article > header {
   font-weight: var(--fw-500);
   color: var(--neu-accent);
   line-height: 1.45;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.typing-role-text {
+  font-weight: var(--fw-600);
+  color: var(--neu-text-bold);
+  border-bottom: 1.5px solid var(--neu-accent);
+  padding-bottom: 1px;
+  transition: all 0.2s ease;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 15px;
+  background-color: var(--neu-accent);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink-cursor 0.9s infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero-profile-bio {
@@ -841,11 +878,23 @@ article > header {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform var(--transition-2), box-shadow var(--transition-2);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: float-hero 5s ease-in-out infinite;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+@keyframes float-hero {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
 }
 
 .hero-avatar-frame:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-neu-raised);
 }
 
@@ -874,6 +923,13 @@ article > header {
   font-weight: var(--fw-600);
   color: var(--neu-text-bold);
   white-space: nowrap;
+  animation: float-tag 4s ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes float-tag {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-4px); }
 }
 
 .hero-avatar-floating-tag ion-icon {
@@ -1043,6 +1099,38 @@ article > header {
   position: relative;
 }
 
+.goal-image-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: skewX(-22deg);
+  pointer-events: none;
+  transition: none;
+}
+
+[data-theme="dark"] .goal-image-header::after {
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+}
+
+.goal-card:hover .goal-image-header::after {
+  left: 170%;
+  transition: left 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 .goal-image-header img {
   width: 100%;
   height: 100%;
@@ -1051,7 +1139,7 @@ article > header {
 }
 
 .goal-card:hover .goal-image-header img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .goal-title {
@@ -1135,17 +1223,23 @@ article > header {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all var(--transition-1);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: default;
 }
 
 .tech-showcase-tile:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.05);
   box-shadow: var(--shadow-neu-raised);
+}
+
+.tech-showcase-tile:hover i {
+  transform: scale(1.18);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .tech-showcase-tile i {
   font-size: 32px;
+  transition: transform 0.3s ease;
 }
 
 .tech-showcase-tile span {
@@ -1154,6 +1248,32 @@ article > header {
   color: var(--neu-text-bold);
   text-align: center;
 }
+
+/* -------------------------------------------------------------------------
+   Staggered Scroll Reveal System (Pure Lightweight CSS Transitions)
+------------------------------------------------------------------------- */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-list .reveal-item:nth-child(1) { transition-delay: 0.04s; }
+.service-list .reveal-item:nth-child(2) { transition-delay: 0.12s; }
+.service-list .reveal-item:nth-child(3) { transition-delay: 0.20s; }
+.service-list .reveal-item:nth-child(4) { transition-delay: 0.28s; }
+.service-list .reveal-item:nth-child(5) { transition-delay: 0.36s; }
+.service-list .reveal-item:nth-child(6) { transition-delay: 0.44s; }
+
+.goals-grid .reveal-item:nth-child(1) { transition-delay: 0.06s; }
+.goals-grid .reveal-item:nth-child(2) { transition-delay: 0.18s; }
+.goals-grid .reveal-item:nth-child(3) { transition-delay: 0.30s; }
 
 /*-----------------------------------*\
   #RESUME SECTION

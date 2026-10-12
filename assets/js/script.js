@@ -355,3 +355,133 @@ if (mapIframe && mapActionBtns.length > 0) {
     });
   });
 }
+
+/**
+ * Interactive Micro-Animations Suite
+ * 1. Typewriter / Rotating Role Animator
+ * 2. 3D Card Tilt on Cursor Hover
+ * 3. Staggered Scroll-Reveal Observer
+ */
+
+// 1. Dynamic Rotating Role Animator
+(function initTypingRoles() {
+  const roleEl = document.querySelector(".typing-role-text");
+  if (!roleEl) return;
+
+  let roles = [
+    "B.E. Data Science Student",
+    "Python Developer",
+    "AI & Machine Learning Explorer",
+    "Full-Stack Web Developer"
+  ];
+
+  try {
+    const customRoles = JSON.parse(roleEl.dataset.roles || "[]");
+    if (customRoles.length > 0) roles = customRoles;
+  } catch (e) {}
+
+  let roleIdx = 0;
+  let charIdx = roles[0].length;
+  let isDeleting = true;
+  const typeSpeed = 55;
+  const deleteSpeed = 30;
+  const pauseEnd = 2200;
+  const pauseStart = 400;
+
+  // Set initial text immediately
+  roleEl.textContent = roles[0];
+
+  function tick() {
+    const currentRole = roles[roleIdx];
+
+    if (isDeleting) {
+      charIdx--;
+      roleEl.textContent = currentRole.substring(0, charIdx);
+    } else {
+      charIdx++;
+      roleEl.textContent = currentRole.substring(0, charIdx);
+    }
+
+    let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+    if (!isDeleting && charIdx === currentRole.length) {
+      delay = pauseEnd;
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+      delay = pauseStart;
+    }
+
+    setTimeout(tick, delay);
+  }
+
+  // Start deleting after initial reading pause
+  setTimeout(tick, pauseEnd);
+})();
+
+// 2. Smooth 3D Cursor Tilt for Avatar Card
+(function initTiltCard() {
+  const tiltCard = document.querySelector("[data-tilt-card]");
+  if (!tiltCard) return;
+
+  let bounds;
+
+  function updateBounds() {
+    bounds = tiltCard.getBoundingClientRect();
+  }
+
+  tiltCard.addEventListener("mouseenter", () => {
+    updateBounds();
+    tiltCard.style.animationPlayState = "paused";
+  });
+
+  tiltCard.addEventListener("mousemove", (e) => {
+    if (!bounds) updateBounds();
+    const mouseX = e.clientX - bounds.left;
+    const mouseY = e.clientY - bounds.top;
+
+    const xPct = (mouseX / bounds.width - 0.5) * 2; // -1 to 1
+    const yPct = (mouseY / bounds.height - 0.5) * 2; // -1 to 1
+
+    const rotateX = -yPct * 11;
+    const rotateY = xPct * 11;
+
+    tiltCard.style.transform = `perspective(850px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.03, 1.03, 1.03)`;
+  });
+
+  tiltCard.addEventListener("mouseleave", () => {
+    tiltCard.style.transform = "";
+    tiltCard.style.animationPlayState = "running";
+  });
+
+  window.addEventListener("resize", updateBounds);
+})();
+
+// 3. Staggered Scroll-Reveal Observer
+(function initScrollReveal() {
+  const revealItems = document.querySelectorAll(".reveal-item");
+  if (!revealItems.length) return;
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px"
+      }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    // Fallback for older browsers
+    revealItems.forEach((item) => item.classList.add("is-revealed"));
+  }
+})();
