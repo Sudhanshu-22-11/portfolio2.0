@@ -31,10 +31,61 @@
 <body>
 
   <!--
-    - #MAIN
+    - #TOP NEUMORPHIC HEADER
   -->
+  <header class="site-header">
+    <nav class="neu-navbar">
 
-  <main>
+      <!-- Brand / Logo -->
+      <a href="#about" class="neu-brand" data-nav-target="about">
+        <span class="neu-brand-dot"></span>
+        <span class="neu-brand-name">Sudhanshu</span>
+        <span class="neu-brand-tag">Portfolio</span>
+      </a>
+
+      <!-- Center Pill Track (Neumorphic Inset Groove) -->
+      <div class="neu-nav-track">
+        <ul class="neu-nav-list">
+
+          <li class="neu-nav-item">
+            <button class="neu-nav-link active" data-nav-link data-nav-target="about">About</button>
+          </li>
+
+          <li class="neu-nav-item">
+            <button class="neu-nav-link" data-nav-link data-nav-target="resume">Resume</button>
+          </li>
+
+          <li class="neu-nav-item">
+            <button class="neu-nav-link" data-nav-link data-nav-target="projects">Projects</button>
+          </li>
+
+          <li class="neu-nav-item">
+            <button class="neu-nav-link" data-nav-link data-nav-target="achievements">Achievements</button>
+          </li>
+
+          <li class="neu-nav-item">
+            <button class="neu-nav-link" data-nav-link data-nav-target="contact">Contact</button>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- Right Actions: CTA & Theme Switcher -->
+      <div class="neu-nav-actions">
+        <button class="neu-btn neu-btn-cta" data-nav-target="contact" title="Get in touch with Sudhanshu">
+          <span>Get in Touch</span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+
+        <button class="neu-btn-icon neu-theme-toggle" id="theme-toggle-btn" title="Toggle Light/Dark Neumorphism" aria-label="Toggle Theme">
+          <ion-icon name="moon-outline" id="theme-icon"></ion-icon>
+        </button>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="main-layout">
 
     <!--
       - #SIDEBAR
@@ -147,38 +198,6 @@
     -->
 
     <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link data-nav-target="about">About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-nav-target="resume">Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-nav-target="projects">Projects</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-nav-target="achievements">Achievements</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-nav-target="contact">Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
 
 
 

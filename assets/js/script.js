@@ -227,3 +227,36 @@ if (copyEmailBtn) {
     });
   });
 }
+
+// Neumorphic Theme Switcher (Light Neumorphism by default, Dark on toggle)
+const themeToggleBtn = document.getElementById("theme-toggle-btn");
+const themeIcon = document.getElementById("theme-icon");
+
+const applyTheme = function (theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  try {
+    localStorage.setItem("portfolio-theme", theme);
+  } catch (err) {}
+
+  if (themeIcon) {
+    if (theme === "dark") {
+      themeIcon.setAttribute("name", "sunny-outline");
+    } else {
+      themeIcon.setAttribute("name", "moon-outline");
+    }
+  }
+};
+
+let storedTheme = "light";
+try {
+  storedTheme = localStorage.getItem("portfolio-theme") || "light";
+} catch (err) {}
+applyTheme(storedTheme);
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", function () {
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+    const nextTheme = currentTheme === "light" ? "dark" : "light";
+    applyTheme(nextTheme);
+  });
+}
