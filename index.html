@@ -217,43 +217,10 @@
         </header>
 
         <!-- 3D Interactive Hero Canvas Banner -->
-        <section class="hero-3d-banner" id="hero-3d-container">
+        <!-- 3D Cinematic Hero Canvas Viewport (Strictly Clean, No Text Overlays) -->
+        <section class="hero-3d-banner" id="hero-3d-container" aria-label="Cinematic 3D Avatar Experience">
           <div class="hero-3d-canvas-wrap">
             <canvas id="hero-canvas"></canvas>
-          </div>
-
-          <div class="hero-text-overlay">
-            <div class="hero-badge">
-              <span class="hero-badge-pulse"></span>
-              <span>2nd Year Data Science Student • Open for Opportunities</span>
-            </div>
-
-            <h3 class="hero-headline">Sudhanshu Kumar Pandey</h3>
-
-            <p class="hero-subheadline">
-              B.E. Data Science Student | Python Developer | Web Developer | Exploring AI & Machine Learning
-            </p>
-
-            <div class="hero-cta-group">
-              <button type="button" class="btn-hero-primary" data-nav-target="projects">
-                <ion-icon name="folder-outline"></ion-icon>
-                <span>View Projects</span>
-              </button>
-
-              <button type="button" class="btn-hero-secondary" data-nav-target="contact">
-                <ion-icon name="paper-plane-outline"></ion-icon>
-                <span>Get in Touch</span>
-              </button>
-
-              <div class="hero-social-links">
-                <a href="https://github.com/Sudhanshu-22-11" target="_blank" rel="noopener noreferrer" class="hero-social-chip" title="GitHub">
-                  <ion-icon name="logo-github"></ion-icon>
-                </a>
-                <a href="https://www.linkedin.com/in/sudhanshu-kumar-pandey-b52652381" target="_blank" rel="noopener noreferrer" class="hero-social-chip" title="LinkedIn">
-                  <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -1111,6 +1078,9 @@
   <!--
     - SCRIPTS
   -->
+
+  <!-- GSAP Animation Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <!-- Three.js CDN for 3D Hero Scene -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
