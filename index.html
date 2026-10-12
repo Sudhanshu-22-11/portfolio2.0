@@ -860,6 +860,10 @@
             </li>
 
             <li class="filter-item">
+              <button data-filter-btn>3D & Web</button>
+            </li>
+
+            <li class="filter-item">
               <button data-filter-btn>Web Development</button>
             </li>
 
@@ -884,6 +888,7 @@
 
             <ul class="select-list">
               <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>3D & Web</button></li>
               <li class="select-item"><button data-select-item>Web Development</button></li>
               <li class="select-item"><button data-select-item>AI & Systems</button></li>
               <li class="select-item"><button data-select-item>Hackathons</button></li>
@@ -893,6 +898,51 @@
 
           <!-- Projects List -->
           <ul class="project-list">
+
+            <!-- Project 1: ANKUR 3D Porsche Showroom (Featured 3D Web Project) -->
+            <li class="project-item active" data-filter-item data-category="3d & web, web development">
+              <div class="project-card-wrapper card-3d-highlight" data-tilt-card>
+                <figure class="project-img">
+                  <img src="./assets/images/ankur-3d-car-preview.png" alt="ANKUR — 3D Porsche 911 WebGL Experience Preview" loading="lazy">
+                  <div class="project-media-badge">
+                    <ion-icon name="cube-outline"></ion-icon>
+                    <span>Real-Time 3D</span>
+                  </div>
+                </figure>
+
+                <div class="project-meta-top">
+                  <h3 class="project-title">ANKUR — 3D Car Showroom</h3>
+                  <span class="project-badge-pill featured-3d">Featured • 3D WebGL</span>
+                </div>
+
+                <p class="project-category">Interactive Porsche 911 3D Experience & Store</p>
+
+                <p class="project-desc-text">
+                  An immersive, scroll-driven automotive showroom and engineering showcase built with Three.js and React Three Fiber. Features a real-time WebGL Porsche 911 with 360° choreography, opening doors, cockpit exploration, realistic PBR materials, dynamic lighting, and integrated die-cast store catalog.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag-chip"><i class="devicon-nextjs-plain"></i> Next.js</span>
+                  <span class="tech-tag-chip"><i class="devicon-threejs-original"></i> Three.js</span>
+                  <span class="tech-tag-chip"><i class="devicon-react-original colored"></i> R3F</span>
+                  <span class="tech-tag-chip"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+                  <span class="tech-tag-chip"><i class="devicon-tailwindcss-plain colored"></i> Tailwind CSS</span>
+                  <span class="tech-tag-chip"><i class="devicon-vercel-original"></i> Vercel</span>
+                </div>
+
+                <div class="project-actions-row">
+                  <a href="https://3dwebiste.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project-action demo">
+                    <ion-icon name="open-outline"></ion-icon>
+                    <span>Live Demo</span>
+                  </a>
+
+                  <a href="https://github.com/Sudhanshu-22-11/ankur-3d-car-store" target="_blank" rel="noopener noreferrer" class="btn-project-action code">
+                    <ion-icon name="logo-github"></ion-icon>
+                    <span>View Source Code</span>
+                  </a>
+                </div>
+              </div>
+            </li>
 
             <!-- Project 1: FoodWise -->
             <li class="project-item active" data-filter-item data-category="web development">

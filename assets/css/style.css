@@ -1690,6 +1690,70 @@ article > header {
   box-shadow: var(--shadow-neu-inset);
 }
 
+/* 3D Highlight & Featured Project Badges */
+.card-3d-highlight {
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.project-media-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.project-item:hover .project-media-badge {
+  transform: scale(1.05);
+}
+
+.project-badge-pill.featured-3d {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(249, 115, 22, 0.15));
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .project-badge-pill.featured-3d {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(249, 115, 22, 0.2));
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+}
+
+.btn-project-action.demo {
+  color: var(--neu-accent);
+}
+
+.btn-project-action.demo:hover {
+  background: var(--neu-accent);
+  color: #ffffff;
+  border-color: var(--neu-accent);
+  box-shadow: 0 6px 18px rgba(255, 112, 67, 0.35);
+}
+
+.btn-project-action.code:hover {
+  color: var(--neu-text-bold);
+  border-color: var(--neu-border);
+}
+
 /*-----------------------------------*\
   #ACHIEVEMENTS SECTION
 \*-----------------------------------*/

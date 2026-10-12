@@ -23,8 +23,11 @@ if (select) {
 
 const filterFunc = function (selectedValue) {
   for (let i = 0; i < filterItems.length; i++) {
-    const itemCategory = (filterItems[i].dataset.category || '').toLowerCase();
-    if (selectedValue === "all" || selectedValue === itemCategory) {
+    const itemCategories = (filterItems[i].dataset.category || '')
+      .toLowerCase()
+      .split(',')
+      .map(s => s.trim());
+    if (selectedValue === "all" || itemCategories.includes(selectedValue)) {
       filterItems[i].classList.add("active");
     } else {
       filterItems[i].classList.remove("active");
@@ -420,42 +423,52 @@ if (mapIframe && mapActionBtns.length > 0) {
   setTimeout(tick, pauseEnd);
 })();
 
-// 2. Smooth 3D Cursor Tilt for Avatar Card
+// 2. Smooth 3D Cursor Tilt for Avatar & Featured Cards
 (function initTiltCard() {
-  const tiltCard = document.querySelector("[data-tilt-card]");
-  if (!tiltCard) return;
+  const tiltCards = document.querySelectorAll("[data-tilt-card]");
+  if (!tiltCards.length) return;
 
-  let bounds;
+  tiltCards.forEach((tiltCard) => {
+    let bounds;
 
-  function updateBounds() {
-    bounds = tiltCard.getBoundingClientRect();
-  }
+    function updateBounds() {
+      bounds = tiltCard.getBoundingClientRect();
+    }
 
-  tiltCard.addEventListener("mouseenter", () => {
-    updateBounds();
-    tiltCard.style.animationPlayState = "paused";
+    tiltCard.addEventListener("mouseenter", () => {
+      updateBounds();
+      if (tiltCard.classList.contains("hero-avatar-frame")) {
+        tiltCard.style.animationPlayState = "paused";
+      }
+    });
+
+    tiltCard.addEventListener("mousemove", (e) => {
+      if (!bounds) updateBounds();
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+
+      const xPct = (mouseX / bounds.width - 0.5) * 2; // -1 to 1
+      const yPct = (mouseY / bounds.height - 0.5) * 2; // -1 to 1
+
+      const isAvatar = tiltCard.classList.contains("hero-avatar-frame");
+      const maxTilt = isAvatar ? 11 : 6;
+      const scale = isAvatar ? 1.03 : 1.015;
+
+      const rotateX = -yPct * maxTilt;
+      const rotateY = xPct * maxTilt;
+
+      tiltCard.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(${scale}, ${scale}, ${scale})`;
+    });
+
+    tiltCard.addEventListener("mouseleave", () => {
+      tiltCard.style.transform = "";
+      if (tiltCard.classList.contains("hero-avatar-frame")) {
+        tiltCard.style.animationPlayState = "running";
+      }
+    });
+
+    window.addEventListener("resize", updateBounds);
   });
-
-  tiltCard.addEventListener("mousemove", (e) => {
-    if (!bounds) updateBounds();
-    const mouseX = e.clientX - bounds.left;
-    const mouseY = e.clientY - bounds.top;
-
-    const xPct = (mouseX / bounds.width - 0.5) * 2; // -1 to 1
-    const yPct = (mouseY / bounds.height - 0.5) * 2; // -1 to 1
-
-    const rotateX = -yPct * 11;
-    const rotateY = xPct * 11;
-
-    tiltCard.style.transform = `perspective(850px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.03, 1.03, 1.03)`;
-  });
-
-  tiltCard.addEventListener("mouseleave", () => {
-    tiltCard.style.transform = "";
-    tiltCard.style.animationPlayState = "running";
-  });
-
-  window.addEventListener("resize", updateBounds);
 })();
 
 // 3. Staggered Scroll-Reveal Observer
