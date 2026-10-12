@@ -112,6 +112,16 @@ for (let i = 0; i < ctaNavButtons.length; i++) {
   });
 }
 
+// Support hash-based navigation (#projects, #resume, #contact, etc.)
+window.addEventListener("hashchange", () => {
+  const hash = window.location.hash.replace("#", "").trim();
+  if (hash) switchPage(hash);
+});
+if (window.location.hash) {
+  const hash = window.location.hash.replace("#", "").trim();
+  if (hash) switchPage(hash);
+}
+
 // Certificate Modal Functionality
 const certModalContainer = document.querySelector("[data-cert-modal-container]");
 const certModalCloseBtn = document.querySelector("[data-cert-modal-close-btn]");
