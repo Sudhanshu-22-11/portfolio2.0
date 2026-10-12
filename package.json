@@ -1,0 +1,23 @@
+{
+  "name": "portfolio2.0",
+  "version": "2.0.0",
+  "description": "Interactive 3D Developer Portfolio for Sudhanshu Kumar Pandey",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -l 8080",
+    "dev": "serve -l 8080",
+    "build": "echo 'Static production assets ready in place.'",
+    "serve": "serve -l 8080"
+  },
+  "keywords": [
+    "portfolio",
+    "threejs",
+    "data-science",
+    "web-developer"
+  ],
+  "author": "Sudhanshu Kumar Pandey",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
