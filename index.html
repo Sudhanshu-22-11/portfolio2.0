@@ -987,13 +987,57 @@
           <h2 class="h2 article-title">Contact</h2>
         </header>
 
-        <!-- Google Map of Shivamogga, Karnataka -->
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://maps.google.com/maps?q=Shivamogga,+Karnataka,+India&t=&z=12&ie=UTF8&iwloc=&output=embed"
-              width="400" height="300" loading="lazy" title="Shivamogga, Karnataka Map"></iframe>
-          </figure>
+        <!-- Interactive Current Location & Map Section -->
+        <section class="mapbox-section">
+          
+          <div class="mapbox-header-card">
+            <div class="mapbox-header-left">
+              <div class="map-pulse-dot" title="Live Geolocation Ready"></div>
+              <div>
+                <h4 class="map-card-title">Location & Base Coordinates</h4>
+                <p class="map-card-subtitle" data-location-status>
+                  Current Base: <strong>PES Institute of Technology & Management (PESITM)</strong>, Shivamogga
+                </p>
+              </div>
+            </div>
+
+            <div class="map-actions-group">
+              <button type="button" class="btn-map-action active" data-map-target="college" title="PESITM College Campus">
+                <ion-icon name="school-outline"></ion-icon>
+                <span>PESITM Campus</span>
+              </button>
+
+              <button type="button" class="btn-map-action" data-map-target="city" title="Shivamogga City Center">
+                <ion-icon name="location-outline"></ion-icon>
+                <span>Shivamogga City</span>
+              </button>
+
+              <button type="button" class="btn-map-action btn-map-gps" data-map-target="gps" title="Detect your real-time GPS location via browser">
+                <ion-icon name="navigate-outline"></ion-icon>
+                <span>Detect Live GPS</span>
+              </button>
+
+              <a href="https://maps.google.com/?q=PES+Institute+of+Technology+and+Management,+Shivamogga" target="_blank" rel="noopener noreferrer" class="btn-map-action btn-map-external" title="Open full view in Google Maps" data-map-link>
+                <ion-icon name="open-outline"></ion-icon>
+                <span>Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="mapbox" data-mapbox>
+            <figure>
+              <iframe
+                data-map-iframe
+                src="https://maps.google.com/maps?q=PES+Institute+of+Technology+and+Management,+Shivamogga,+Karnataka&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="400" height="340" loading="lazy" title="Current Location Map"></iframe>
+            </figure>
+          </div>
+
+          <div class="map-notice-pill">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>Tap <strong>"Detect Live GPS"</strong> to fetch your real-time GPS coordinates directly in your browser.</span>
+          </div>
+
         </section>
 
         <!-- Contact Form -->

@@ -260,3 +260,98 @@ if (themeToggleBtn) {
     applyTheme(nextTheme);
   });
 }
+
+// -----------------------------------------------------------------------------
+// Interactive Location Map Controller (GPS & Landmark Switcher)
+// -----------------------------------------------------------------------------
+const mapIframe = document.querySelector("[data-map-iframe]");
+const locationStatus = document.querySelector("[data-location-status]");
+const mapActionBtns = document.querySelectorAll("[data-map-target]");
+const mapExternalLink = document.querySelector("[data-map-link]");
+
+if (mapIframe && mapActionBtns.length > 0) {
+  const mapLocations = {
+    college: {
+      embed: "https://maps.google.com/maps?q=PES+Institute+of+Technology+and+Management,+Shivamogga,+Karnataka&t=&z=15&ie=UTF8&iwloc=&output=embed",
+      external: "https://maps.google.com/?q=PES+Institute+of+Technology+and+Management,+Shivamogga",
+      label: "Current Base: <strong>PES Institute of Technology & Management (PESITM)</strong>, Shivamogga"
+    },
+    city: {
+      embed: "https://maps.google.com/maps?q=Shivamogga,+Karnataka,+India&t=&z=13&ie=UTF8&iwloc=&output=embed",
+      external: "https://maps.google.com/?q=Shivamogga,+Karnataka,+India",
+      label: "Region: <strong>Shivamogga City Center</strong>, Karnataka, India"
+    }
+  };
+
+  mapActionBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const target = this.getAttribute("data-map-target");
+
+      if (target === "gps") {
+        if (!navigator.geolocation) {
+          if (locationStatus) {
+            locationStatus.innerHTML = '<span style="color:#ef4444;">⚠️ Geolocation is not supported by your browser.</span>';
+          }
+          return;
+        }
+
+        const btnSpan = this.querySelector("span");
+        const originalText = btnSpan ? btnSpan.innerText : "Detect Live GPS";
+        if (btnSpan) btnSpan.innerText = "Locating GPS...";
+        if (locationStatus) {
+          locationStatus.innerHTML = '<span style="color:var(--neu-accent);">📡 Requesting browser GPS permission...</span>';
+        }
+
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            const accuracy = Math.round(position.coords.accuracy);
+
+            mapIframe.src = `https://maps.google.com/maps?q=${lat},${lng}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+            if (mapExternalLink) {
+              mapExternalLink.href = `https://maps.google.com/?q=${lat},${lng}`;
+            }
+
+            if (locationStatus) {
+              locationStatus.innerHTML = `📍 Live GPS Detected: <strong>${lat.toFixed(4)}° N, ${lng.toFixed(4)}° E</strong> (±${accuracy}m accuracy)`;
+            }
+
+            mapActionBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            if (btnSpan) btnSpan.innerText = "📍 GPS Active";
+          },
+          (error) => {
+            if (btnSpan) btnSpan.innerText = originalText;
+            let errorMsg = "Unable to retrieve location.";
+            if (error.code === error.PERMISSION_DENIED) {
+              errorMsg = "Location permission denied. Please allow location access in your browser.";
+            } else if (error.code === error.POSITION_UNAVAILABLE) {
+              errorMsg = "Location information is unavailable.";
+            } else if (error.code === error.TIMEOUT) {
+              errorMsg = "Request to get location timed out.";
+            }
+            if (locationStatus) {
+              locationStatus.innerHTML = `<span style="color:#ef4444;">⚠️ ${errorMsg}</span>`;
+            }
+          },
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+      } else if (mapLocations[target]) {
+        mapActionBtns.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+
+        const gpsBtnSpan = document.querySelector("[data-map-target='gps'] span");
+        if (gpsBtnSpan) gpsBtnSpan.innerText = "Detect Live GPS";
+
+        mapIframe.src = mapLocations[target].embed;
+        if (mapExternalLink) {
+          mapExternalLink.href = mapLocations[target].external;
+        }
+        if (locationStatus) {
+          locationStatus.innerHTML = mapLocations[target].label;
+        }
+      }
+    });
+  });
+}
