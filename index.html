@@ -216,23 +216,72 @@
           <h2 class="h2 article-title">About Me</h2>
         </header>
 
-        <!-- 3D Interactive Hero Canvas Banner -->
-        <!-- 3D Cinematic Hero Canvas Viewport (Strictly Clean, No Text Overlays) -->
-        <section class="hero-3d-banner" id="hero-3d-container" aria-label="Cinematic 3D Avatar Experience">
-          <div class="hero-3d-canvas-wrap">
-            <canvas id="hero-canvas"></canvas>
+        <!-- Professional Split Hero Profile Banner -->
+        <section class="hero-profile-banner" aria-label="Hero Profile Introduction">
+          <!-- Left Details Column -->
+          <div class="hero-profile-content">
+            <div class="hero-status-pill">
+              <span class="hero-status-dot"></span>
+              <span>Open for Opportunities • 2nd Year Data Science Student</span>
+            </div>
+
+            <h3 class="hero-profile-title">
+              Hi, I'm <span class="highlight">Sudhanshu</span> Kumar Pandey
+            </h3>
+
+            <p class="hero-profile-subtitle">
+              B.E. Data Science Student | Python Developer | AI & Machine Learning Explorer
+            </p>
+
+            <p class="hero-profile-bio">
+              I am a second-year Data Science student at PES Institute of Technology & Management, Shivamogga, passionate about Python development, data analysis, machine learning models, and building clean, modern web applications.
+            </p>
+
+            <!-- Tech Focus Pills -->
+            <div class="hero-tech-pills">
+              <span class="hero-tech-pill"><i class="devicon-python-plain colored"></i> Python</span>
+              <span class="hero-tech-pill"><i class="devicon-pandas-plain colored"></i> Pandas</span>
+              <span class="hero-tech-pill"><ion-icon name="hardware-chip-outline" style="color: #6366f1;"></ion-icon> Machine Learning</span>
+              <span class="hero-tech-pill"><i class="devicon-javascript-plain colored"></i> Web Dev</span>
+              <span class="hero-tech-pill"><ion-icon name="analytics-outline" style="color: #10b981;"></ion-icon> Data Science</span>
+            </div>
+
+            <!-- Action Buttons & Quick Links -->
+            <div class="hero-actions-row">
+              <button type="button" class="hero-btn-primary" data-nav-target="projects">
+                <ion-icon name="folder-outline"></ion-icon>
+                <span>View Projects</span>
+              </button>
+
+              <button type="button" class="hero-btn-secondary" data-nav-target="contact">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+                <span>Get in Touch</span>
+              </button>
+
+              <div class="hero-social-strip">
+                <a href="https://github.com/Sudhanshu-22-11" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="GitHub Profile">
+                  <ion-icon name="logo-github"></ion-icon>
+                </a>
+                <a href="https://www.linkedin.com/in/sudhanshu-kumar-pandey-b52652381" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="LinkedIn Profile">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+                <a href="mailto:anshu402pandey@gmail.com" class="hero-social-btn" title="Direct Email">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </a>
+              </div>
+            </div>
           </div>
-        </section>
 
-        <!-- Professional Summary -->
-        <section class="about-text">
-          <p>
-            I am a second-year Data Science student at PES Institute of Technology & Management, Shivamogga, interested in Python development, web development, data analysis, machine learning, data visualization, and AI-powered applications.
-          </p>
-
-          <p>
-            I enjoy learning new technologies, building practical projects, and applying technical knowledge to real-world problems. I am looking to grow as a developer, collaborate on meaningful projects, and explore internship and freelance opportunities.
-          </p>
+          <!-- Right Image Column (Demo Cartoon Avatar) -->
+          <div class="hero-avatar-column">
+            <div class="hero-avatar-frame">
+              <img src="./assets/images/demo-cartoon-avatar.jpg" alt="Sudhanshu Kumar Pandey - 3D Cartoon Developer Avatar" class="hero-avatar-img" loading="eager">
+              <div class="hero-avatar-floating-tag">
+                <ion-icon name="code-slash-outline"></ion-icon>
+                <span>Developer & Data Science</span>
+              </div>
+            </div>
+          </div>
         </section>
 
 
@@ -1078,15 +1127,6 @@
   <!--
     - SCRIPTS
   -->
-
-  <!-- GSAP Animation Engine -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-  <!-- Three.js CDN for 3D Hero Scene -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-  <!-- 3D Interactive Hero Visualization -->
-  <script src="./assets/js/three-hero.js"></script>
 
   <!-- Custom Site Logic & Navigation -->
   <script src="./assets/js/script.js"></script>

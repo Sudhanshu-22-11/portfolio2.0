@@ -609,63 +609,276 @@ article > header {
   margin-bottom: 16px;
 }
 
-/* 3D Cinematic Hero Canvas Viewport */
-.hero-3d-banner {
-  position: relative;
-  width: 100%;
-  height: 480px;
-  min-height: 440px;
+/* -------------------------------------------------------------------------
+   Professional Split Hero Profile Banner (Neumorphic Two-Column)
+------------------------------------------------------------------------- */
+.hero-profile-banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 30px 28px;
   border-radius: 26px;
-  background: #03050a;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-raised);
+  border: 1px solid var(--neu-border);
+  margin-bottom: 35px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-2);
+}
+
+@media (min-width: 900px) {
+  .hero-profile-banner {
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 36px;
+    padding: 36px 40px;
+  }
+}
+
+/* Ambient subtle accent glow */
+.hero-profile-banner::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--neu-accent) 0%, transparent 70%);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Left Details Column */
+.hero-profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 1;
+}
+
+.hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-pill);
+  font-size: 12px;
+  font-weight: var(--fw-600);
+  color: var(--neu-text-bold);
+  border: 1px solid var(--neu-border-subtle);
+}
+
+.hero-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-status-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-status-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.25); }
+}
+
+.hero-profile-title {
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: var(--fw-700);
+  color: var(--neu-text-bold);
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+}
+
+.hero-profile-title .highlight {
+  color: var(--neu-accent);
+}
+
+.hero-profile-subtitle {
+  font-size: 14px;
+  font-weight: var(--fw-500);
+  color: var(--neu-accent);
+  line-height: 1.45;
+}
+
+.hero-profile-bio {
+  font-size: 14px;
+  color: var(--neu-text);
+  line-height: 1.7;
+}
+
+/* Tech Focus Pills */
+.hero-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.hero-tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: var(--fw-500);
+  color: var(--neu-text-bold);
+  background: var(--neu-surface);
   box-shadow: var(--shadow-neu-inset);
   border: 1px solid var(--neu-border-subtle);
-  overflow: hidden;
-  margin-bottom: 35px;
-  display: block;
-  cursor: grab;
 }
 
-.hero-3d-banner:active {
-  cursor: grabbing;
+.hero-tech-pill i,
+.hero-tech-pill ion-icon {
+  font-size: 14px;
 }
 
-.hero-3d-canvas-wrap {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#hero-canvas {
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-}
-
+/* Action Buttons & Socials */
+.hero-actions-row {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 12px;
+  margin-top: 6px;
 }
 
-.hero-social-chip {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 16px;
   background: var(--neu-surface);
   box-shadow: var(--shadow-neu-small);
+  border: 1px solid var(--neu-border);
+  color: var(--neu-accent);
+  font-size: 13px;
+  font-weight: var(--fw-600);
+  cursor: pointer;
+  transition: all var(--transition-1);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-neu-raised);
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 16px;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-pill);
+  border: 1px solid var(--neu-border-subtle);
+  color: var(--neu-text-bold);
+  font-size: 13px;
+  font-weight: var(--fw-600);
+  cursor: pointer;
+  transition: all var(--transition-1);
+}
+
+.hero-btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-neu-small);
+  color: var(--neu-accent);
+}
+
+.hero-social-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 2px;
+}
+
+.hero-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-small);
+  border: 1px solid var(--neu-border);
+  color: var(--neu-text-bold);
+  font-size: 17px;
+  transition: all var(--transition-1);
+}
+
+.hero-social-btn:hover {
+  transform: translateY(-2px);
+  color: var(--neu-accent);
+  box-shadow: var(--shadow-neu-raised);
+}
+
+/* Right Avatar Frame Column */
+.hero-avatar-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-avatar-frame {
+  position: relative;
+  width: 100%;
+  max-width: 290px;
+  aspect-ratio: 1 / 1;
+  border-radius: 26px;
+  padding: 10px;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-raised);
   border: 1px solid var(--neu-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  color: var(--neu-text-bold);
-  transition: all var(--transition-1);
+  transition: transform var(--transition-2), box-shadow var(--transition-2);
 }
 
-.hero-social-chip:hover {
-  transform: translateY(-2px);
-  color: var(--neu-accent);
+.hero-avatar-frame:hover {
+  transform: translateY(-4px);
   box-shadow: var(--shadow-neu-raised);
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--shadow-neu-inset);
+  display: block;
+}
+
+.hero-avatar-floating-tag {
+  position: absolute;
+  bottom: -10px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 14px;
+  background: var(--neu-surface);
+  box-shadow: var(--shadow-neu-small);
+  border: 1px solid var(--neu-border);
+  font-size: 11px;
+  font-weight: var(--fw-600);
+  color: var(--neu-text-bold);
+  white-space: nowrap;
+}
+
+.hero-avatar-floating-tag ion-icon {
+  color: var(--neu-accent);
+  font-size: 14px;
 }
 
 /* Services / Focus Grid */
