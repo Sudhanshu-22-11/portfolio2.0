@@ -20,12 +20,15 @@
 
 ## ✨ Features & Architecture
 
-- **3D Hero Visualization**: Interactive WebGL geometric polyhedron scene rendered with **Three.js**, with mouse-tracking parallax damping, ambient data node particles, and reduced-motion compliance.
-- **Categorized Technical Competencies**: Transparent skill presentation across Frontend (HTML5, CSS3, JavaScript, React - *Learning/Familiar*), Programming (Python, C), and Data Science libraries (Pandas, NumPy, Matplotlib).
+- **Floating Cartoon Developer Avatar**: High-res 3D cartoon avatar with ambient radial pulse glow, floating physics, and cursor 3D parallax tilt.
+- **Laser Neon Scroll-Progress Bar**: Real-time reading progress indicator with high-vibrancy cyan/violet/orange laser glow.
+- **Command Palette (`⌘K` / `Ctrl+K`)**: Keyboard-navigable quick switcher to search all projects, sections, and developer tools.
+- **Interactive Developer CLI Terminal**: Floating retro-cyber terminal supporting commands (`help`, `about`, `skills`, `projects`, `awards`, `matrix`, `theme`).
+- **Official Resume PDF Modal**: Interactive ATS-ready CV viewer with one-click `window.print()` PDF generation and download options.
+- **Scroll-Animated Engineering Metrics**: Live counters showcasing 1st Prize Best Pitching, National Hackathons, and GitHub Commits.
+- **Categorized Technical Competencies**: Transparent skill presentation across Frontend, Programming (Python, C), and Data Science libraries (Pandas, NumPy, Matplotlib).
 - **Featured Projects Showcase**: Filterable project gallery with live demo links, repository access, and tech stack tags.
-- **Honors & Achievements**: Spotlighting team accolades (Best Pitching Award — Team Anvay) and national-level hackathons (Hack Manlandu, Hack Fest 1.0).
-- **Certificate Inspection Modal**: Interactive viewer for the *AI Fluency for Students* certificate issued by **Anthropic** (in partnership with UCC, Ringling College, HEA, and National Forum).
-- **Interactive Contact Hub**: Mapbox integration for Shivamogga, Karnataka, a direct email composer, and quick clipboard utilities.
+- **Honors & Achievements**: Spotlighting team accolades (Best Pitching Award — Team Anvay), SIH 2026, Hack Malenadu, and Anthropic AI Fluency certification.
 
 ---
 
@@ -33,6 +36,8 @@
 
 | Project | Description | Tech Stack | Links |
 | :--- | :--- | :--- | :--- |
+| **ANKUR — 3D Car Showroom** | Real-time WebGL Porsche 911 showroom with 360° choreography & PBR shaders. | Three.js, React Three Fiber, Next.js, Vercel | [Code](https://github.com/Sudhanshu-22-11/ankur-3d-car-store) • [Live Demo](https://3dwebiste.vercel.app/) |
+| **AURUM — LUMIÈRE Jewellery** | High-end luxury jewelry e-commerce showcase with diamond verification. | HTML5, CSS3, JavaScript, Netlify | [Code](https://github.com/Sudhanshu-22-11) • [Live Demo](https://aurum-jewellery-2026.netlify.app) |
 | **FoodWise** | Smart food waste reduction & redistribution platform (Smart India Hackathon). | Next.js, TypeScript, Tailwind CSS, Vercel | [Code](https://github.com/Sudhanshu-22-11/FoodWise) • [Live Demo](https://food-wise-puce.vercel.app) |
 | **Exam Guardrail** | Integrity-first online examination monitoring and proctoring platform by Team BrainBytes. | Node.js, Express, JavaScript, HTML/CSS | [Code](https://github.com/Sudhanshu-22-11/Exam-Guardrail) |
 | **ResQ-AI** | AI emergency first-response PWA & Android app with offline triage decision trees. | React 19, Groq API (Llama 3.1), Capacitor, IndexedDB | [Code](https://github.com/Sudhanshu-22-11/ResQ-AI) |
@@ -42,9 +47,9 @@
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Semantic HTML5, Vanilla CSS3 (Custom Design System & Glassmorphism), Modern JavaScript (ES6+)
-- **3D Graphics**: Three.js (WebGL)
-- **Icons**: Ionicons
+- **Frontend**: Semantic HTML5, Vanilla CSS3 (Custom Neumorphic Design System & Specular Glare), Modern JavaScript (ES6+)
+- **Interactive Tools**: Command Palette (Cmd+K), Interactive CLI Terminal, ATS Resume Print Engine
+- **Icons**: Devicon, Ionicons
 
 ---
 
