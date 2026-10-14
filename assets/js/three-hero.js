@@ -47,19 +47,19 @@
     // 1. Scene, Camera & Renderer Setup
     // -------------------------------------------------------------------------
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x03050a);
-    scene.fog = new THREE.FogExp2(0x03050a, 0.038);
+    // Transparent background to blend seamlessly with hero container
+    scene.background = null;
 
-    let width = container.clientWidth || 900;
-    let height = container.clientHeight || 480;
+    let width = container.clientWidth || 360;
+    let height = container.clientHeight || 420;
 
-    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
     // Initial camera position for wide establishing shot
-    camera.position.set(0, 1.4, 9.0);
+    camera.position.set(0, 1.2, 7.5);
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
-      alpha: false,
+      alpha: true,
       antialias: true,
       powerPreference: 'high-performance'
     });
@@ -284,7 +284,7 @@
 
     const textureLoader = new THREE.TextureLoader();
     textureLoader.load(
-      './assets/images/my-avatar.png',
+      './assets/images/demo-cartoon-avatar-transparent.png',
       function (avatarTex) {
         avatarTex.encoding = THREE.sRGBEncoding;
         avatarTex.generateMipmaps = true;
@@ -664,6 +664,15 @@
     }
     window.addEventListener('resize', onResize);
 
+    // Scroll-driven 3D reactivity
+    let heroScrollY = window.scrollY || 0;
+    let targetScrollRot = 0;
+    let currentScrollRot = 0;
+    window.addEventListener('scroll', () => {
+      heroScrollY = window.scrollY || 0;
+      targetScrollRot = heroScrollY * 0.0022;
+    }, { passive: true });
+
     // Intersection Observer to pause rendering when section is scrolled out
     let isVisible = true;
     const observer = new IntersectionObserver((entries) => {
@@ -687,14 +696,15 @@
       // Smooth mouse follow & drag damping (Lerp)
       currentX += (targetX - currentX) * 0.05;
       currentY += (targetY - currentY) * 0.05;
+      currentScrollRot += (targetScrollRot - currentScrollRot) * 0.06;
 
       // Avatar Floating & Subtle Harmonic Breathing (Only after ascent completes)
       if (avatarMasterGroup.position.y > 0.4) {
         avatarMasterGroup.position.y = 0.85 + Math.sin(time * 1.5) * 0.08;
       }
 
-      // Avatar gentle natural sway & mouse reactivity
-      avatarMasterGroup.rotation.y = dragRotY + Math.sin(time * 0.7) * 0.12 + currentX * 0.6;
+      // Avatar gentle natural sway, mouse reactivity & scroll-driven rotation
+      avatarMasterGroup.rotation.y = dragRotY + Math.sin(time * 0.7) * 0.12 + currentX * 0.6 + currentScrollRot;
       avatarMasterGroup.rotation.x = dragRotX + Math.sin(time * 0.9) * 0.05 - currentY * 0.4;
       avatarMasterGroup.rotation.z = -Math.sin(time * 0.6) * 0.03;
 

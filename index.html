@@ -32,6 +32,10 @@
 </head>
 
 <body>
+  <!-- Laser Neon Scroll-Progress Bar -->
+  <div class="scroll-progress-track" aria-hidden="true">
+    <div class="scroll-progress-fill" id="scroll-progress-fill"></div>
+  </div>
 
   <!--
     - #TOP NEUMORPHIC HEADER
@@ -88,8 +92,17 @@
         </ul>
       </div>
 
-      <!-- Right Actions: CTA & Theme Switcher -->
+      <!-- Right Actions: Cmd+K, Resume, CTA & Theme Switcher -->
       <div class="neu-nav-actions">
+        <button class="neu-btn-icon neu-cmd-btn" id="cmd-palette-btn" title="Quick Search & Navigation (Cmd + K / Ctrl + K)" aria-label="Command Palette">
+          <ion-icon name="search-outline"></ion-icon>
+          <span class="cmd-k-badge">⌘K</span>
+        </button>
+
+        <button class="neu-btn-icon neu-resume-btn" id="header-resume-btn" title="View & Download Resume (PDF)" aria-label="Resume" data-open-resume-modal>
+          <ion-icon name="document-text-outline"></ion-icon>
+        </button>
+
         <button class="neu-btn neu-btn-cta" data-nav-target="contact" title="Get in touch with Sudhanshu">
           <span>Get in Touch</span>
           <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -296,15 +309,77 @@
             </div>
           </div>
 
-          <!-- Right Image Column (Demo Cartoon Avatar - Transparent Cutout) -->
+          <!-- Right Image Column (Clean Transparent 3D Cartoon Developer Avatar) -->
           <div class="hero-avatar-column">
             <div class="hero-avatar-frame" data-tilt-card>
+              <div class="hero-avatar-glow"></div>
               <img src="./assets/images/demo-cartoon-avatar-transparent.png" alt="Sudhanshu Kumar Pandey - 3D Cartoon Developer Avatar" class="hero-avatar-img" loading="eager">
               <div class="hero-avatar-floating-tag">
                 <img src="./assets/images/icon-3d-datascience.png" alt="Data Science Icon">
                 <span>Developer & Data Science</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!--
+          - KEY METRICS & IMPACT SHOWCASE (Scroll-Animated Counters)
+        -->
+        <section class="metrics-showcase-section" aria-label="Key Achievements and Highlights">
+          <div class="metrics-grid">
+
+            <div class="metric-card reveal-item" data-tilt-card>
+              <div class="metric-icon-box gold">
+                <ion-icon name="trophy"></ion-icon>
+              </div>
+              <div class="metric-details">
+                <div class="metric-val-row">
+                  <span class="metric-num" data-counter-target="1">1</span>
+                  <span class="metric-unit">st Prize</span>
+                </div>
+                <p class="metric-desc">Best Pitching Award (Team Anvay)</p>
+              </div>
+            </div>
+
+            <div class="metric-card reveal-item" data-tilt-card>
+              <div class="metric-icon-box cyan">
+                <ion-icon name="rocket"></ion-icon>
+              </div>
+              <div class="metric-details">
+                <div class="metric-val-row">
+                  <span class="metric-num" data-counter-target="4">4</span>
+                  <span class="metric-unit">+</span>
+                </div>
+                <p class="metric-desc">National Hackathons Competed</p>
+              </div>
+            </div>
+
+            <div class="metric-card reveal-item" data-tilt-card>
+              <div class="metric-icon-box purple">
+                <ion-icon name="code-slash"></ion-icon>
+              </div>
+              <div class="metric-details">
+                <div class="metric-val-row">
+                  <span class="metric-num" data-counter-target="10">10</span>
+                  <span class="metric-unit">+</span>
+                </div>
+                <p class="metric-desc">Web & AI Solutions Built</p>
+              </div>
+            </div>
+
+            <div class="metric-card reveal-item" data-tilt-card>
+              <div class="metric-icon-box emerald">
+                <ion-icon name="git-commit"></ion-icon>
+              </div>
+              <div class="metric-details">
+                <div class="metric-val-row">
+                  <span class="metric-num" data-counter-target="250">250</span>
+                  <span class="metric-unit">+</span>
+                </div>
+                <p class="metric-desc">Verified Production Commits</p>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -687,6 +762,31 @@
           </div>
         </header>
 
+        <!-- Download / View Resume Banner -->
+        <section class="resume-cta-banner reveal-item" data-tilt-card>
+          <div class="resume-cta-left">
+            <div class="resume-cta-badge">
+              <span class="status-dot-green"></span>
+              <span>Updated for 2026 Opportunities</span>
+            </div>
+            <h3 class="resume-cta-title">Official Developer & Data Science Resume</h3>
+            <p class="resume-cta-desc">
+              Download the complete verified ATS-compliant PDF resume of Sudhanshu Kumar Pandey, or preview verified hackathons, education, and technical competencies directly in the browser.
+            </p>
+          </div>
+
+          <div class="resume-cta-actions">
+            <button type="button" class="btn-resume-preview" data-open-resume-modal>
+              <ion-icon name="document-text-outline"></ion-icon>
+              <span>View & Download CV (PDF)</span>
+            </button>
+            <a href="mailto:anshu402pandey@gmail.com?subject=Resume%20Inquiry%20for%20Sudhanshu%20Kumar%20Pandey" class="btn-resume-email" title="Request custom tailored resume">
+              <ion-icon name="mail-outline"></ion-icon>
+              <span>Request Custom CV</span>
+            </a>
+          </div>
+        </section>
+
         <!-- Education Timeline -->
         <section class="timeline">
 
@@ -950,6 +1050,31 @@
               <li class="select-item"><button data-select-item>Hackathons</button></li>
             </ul>
 
+          </div>
+
+          <!-- GitHub Live Activity & Code Highlights Card -->
+          <div class="github-stats-card reveal-item" data-tilt-card>
+            <div class="github-stats-header">
+              <div class="github-stats-user">
+                <div class="github-icon-box">
+                  <ion-icon name="logo-github"></ion-icon>
+                </div>
+                <div>
+                  <h4 class="github-title">Sudhanshu-22-11 <span class="gh-verified-badge">✓ Active Developer</span></h4>
+                  <p class="github-subtitle">Open Source Prototypes, Hackathon Repositories & Real-Time Deployments</p>
+                </div>
+              </div>
+              <a href="https://github.com/Sudhanshu-22-11" target="_blank" rel="noopener noreferrer" class="btn-github-view" title="Explore Sudhanshu's GitHub">
+                <span>View All Repos</span>
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+            <div class="github-metrics-strip">
+              <div class="gh-metric-chip"><span class="gh-dot green"></span><strong>10+</strong> Public Repos</div>
+              <div class="gh-metric-chip"><span class="gh-dot blue"></span><strong>Python & TypeScript</strong> Core</div>
+              <div class="gh-metric-chip"><span class="gh-dot orange"></span><strong>SIH & National Finalist</strong></div>
+              <div class="gh-metric-chip"><span class="gh-dot purple"></span><strong>250+</strong> Commits</div>
+            </div>
           </div>
 
           <!-- Projects List -->
@@ -1600,10 +1725,203 @@
 
 
   <!--
+    - #COMMAND PALETTE MODAL (Cmd + K / Ctrl + K)
+  -->
+  <div class="cmd-palette-modal" id="cmd-palette-modal" aria-hidden="true">
+    <div class="cmd-palette-overlay" id="cmd-palette-overlay"></div>
+    <div class="cmd-palette-box">
+      <div class="cmd-palette-search">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="text" id="cmd-search-input" placeholder="Type a command or search (e.g. '3D', 'resume', 'foodwise', 'skills')..." autocomplete="off" spellcheck="false">
+        <span class="cmd-badge-esc">ESC</span>
+      </div>
+
+      <div class="cmd-palette-results" id="cmd-palette-results">
+        <!-- Results dynamically populated by script.js -->
+      </div>
+
+      <div class="cmd-palette-footer">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>
+        <span><kbd>↵</kbd> Select</span>
+        <span><kbd>ESC</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!--
+    - #RESUME PREVIEW & PDF EXPORT MODAL
+  -->
+  <div class="resume-modal-container" id="resume-modal" aria-hidden="true">
+    <div class="resume-modal-overlay" id="resume-modal-overlay"></div>
+    <div class="resume-modal-box">
+      <div class="resume-modal-header">
+        <div class="resume-modal-title-group">
+          <div class="resume-modal-icon">
+            <ion-icon name="document-text"></ion-icon>
+          </div>
+          <div>
+            <h3 class="resume-modal-title">Sudhanshu Kumar Pandey — Official Resume</h3>
+            <p class="resume-modal-subtitle">B.E. Data Science Student • Python Developer • SIH Finalist</p>
+          </div>
+        </div>
+
+        <div class="resume-modal-actions">
+          <button type="button" class="btn-resume-print" id="btn-print-resume" title="Print or Save as PDF">
+            <ion-icon name="print-outline"></ion-icon>
+            <span>Print / Save as PDF</span>
+          </button>
+          <button type="button" class="resume-modal-close" id="resume-modal-close" title="Close Resume Modal">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Resume Paper Sheet -->
+      <div class="resume-paper" id="resume-paper-content">
+        <!-- Header -->
+        <div class="res-paper-header">
+          <div>
+            <h1 class="res-name">Sudhanshu Kumar Pandey</h1>
+            <p class="res-tagline">2nd Year B.E. Data Science Student | Python & Modern Web Developer</p>
+          </div>
+          <div class="res-contact-block">
+            <p><ion-icon name="mail-outline"></ion-icon> anshu402pandey@gmail.com</p>
+            <p><ion-icon name="location-outline"></ion-icon> Shivamogga, Karnataka, India</p>
+            <p><ion-icon name="logo-github"></ion-icon> github.com/Sudhanshu-22-11</p>
+            <p><ion-icon name="logo-linkedin"></ion-icon> linkedin.com/in/sudhanshu-kumar-pandey</p>
+          </div>
+        </div>
+
+        <div class="res-divider"></div>
+
+        <!-- Academic Profile -->
+        <div class="res-section">
+          <h2 class="res-section-title"><ion-icon name="school-outline"></ion-icon> Education</h2>
+          <div class="res-item">
+            <div class="res-item-row">
+              <strong>PES Institute of Technology & Management (PESITM)</strong>
+              <span>2024 — Present | Shivamogga, Karnataka</span>
+            </div>
+            <p class="res-item-sub">Bachelor of Engineering (B.E.) in Data Science — 2nd Year</p>
+            <p class="res-item-text">Coursework: Data Science, Python, C, Web Development, Statistics & Linear Algebra.</p>
+          </div>
+          <div class="res-item" style="margin-top: 8px;">
+            <div class="res-item-row">
+              <strong>Pre-University Education (PUC / 12th Grade)</strong>
+              <span>Science Stream</span>
+            </div>
+            <p class="res-item-sub">Focus: Mathematics, Physics, Chemistry, Computer Science Fundamentals</p>
+          </div>
+        </div>
+
+        <!-- Technical Competencies -->
+        <div class="res-section">
+          <h2 class="res-section-title"><ion-icon name="code-slash-outline"></ion-icon> Technical Competencies</h2>
+          <div class="res-skills-grid">
+            <p><strong>Languages:</strong> Python, JavaScript, C, HTML5, CSS3, SQL</p>
+            <p><strong>Data & ML:</strong> Pandas, NumPy, Matplotlib, Scikit-Learn Basics, Jupyter Notebooks</p>
+            <p><strong>Frontend & 3D:</strong> Semantic HTML5, Vanilla CSS3 Neumorphism, Three.js (WebGL), React (Learning)</p>
+            <p><strong>Tools & Platforms:</strong> Git, GitHub, VS Code, Linux/Unix Terminal, Netlify, Vercel</p>
+          </div>
+        </div>
+
+        <!-- Featured Projects -->
+        <div class="res-section">
+          <h2 class="res-section-title"><ion-icon name="folder-open-outline"></ion-icon> Featured Engineering Projects</h2>
+
+          <div class="res-proj-item">
+            <div class="res-item-row">
+              <strong>ANKUR — Real-Time 3D Car Showroom (Three.js & R3F)</strong>
+              <span>Live: 3dwebiste.vercel.app</span>
+            </div>
+            <p class="res-item-text">Engineered an interactive 3D Porsche 911 showroom with 360° choreography, PBR shaders, dynamic lighting, and integrated store.</p>
+          </div>
+
+          <div class="res-proj-item">
+            <div class="res-item-row">
+              <strong>FoodWise — Smart Surplus Food Redistribution (Smart India Hackathon)</strong>
+              <span>Next.js, TypeScript, Tailwind</span>
+            </div>
+            <p class="res-item-text">Engineered food-waste reduction platform connecting surplus donors with NGOs with lifecycle expiration alerts.</p>
+          </div>
+
+          <div class="res-proj-item">
+            <div class="res-item-row">
+              <strong>ResQ-AI — Emergency First-Response System (PWA & Android)</strong>
+              <span>React 19, Groq API, Capacitor, IndexedDB</span>
+            </div>
+            <p class="res-item-text">AI emergency triage app with one-tap SOS dispatch, GPS coordinates, and offline decision trees.</p>
+          </div>
+
+          <div class="res-proj-item">
+            <div class="res-item-row">
+              <strong>Exam Guardrail — Integrity-First Proctoring (Team BrainBytes)</strong>
+              <span>Node.js, Express, JavaScript</span>
+            </div>
+            <p class="res-item-text">Academic monitoring guardrails for candidate environment verification and supervision.</p>
+          </div>
+        </div>
+
+        <!-- Honors & Accreditations -->
+        <div class="res-section">
+          <h2 class="res-section-title"><ion-icon name="trophy-outline"></ion-icon> Honors & Certifications</h2>
+          <ul class="res-bullets">
+            <li><strong>Best Pitching Award — Team Anvay:</strong> 1st Prize Winner in National Innovation Challenge defense.</li>
+            <li><strong>Smart India Hackathon (SIH 2026):</strong> Finalist team developing the Unified Tribal Scholarship portal for MoTA.</li>
+            <li><strong>Hack Malenadu:</strong> 24-Hour National Hackathon Competitor at PESITM Shivamogga.</li>
+            <li><strong>AI Fluency for Students:</strong> Verified Certificate issued by Anthropic in collaboration with UCC, HEA, and National Forum.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--
+    - #INTERACTIVE DEVELOPER CLI TERMINAL (Easter Egg Console)
+  -->
+  <div class="dev-terminal-modal" id="dev-terminal" aria-hidden="true">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <button class="term-btn term-close" id="term-close-btn" title="Close Terminal"></button>
+          <button class="term-btn term-min" id="term-min-btn" title="Minimize Terminal"></button>
+          <button class="term-btn term-max" id="term-max-btn" title="Maximize Terminal"></button>
+        </div>
+        <div class="terminal-title">sudhanshu@portfolio: ~ (zsh)</div>
+        <div class="terminal-status"><span class="term-status-live"></span>ONLINE</div>
+      </div>
+
+      <div class="terminal-body" id="terminal-output">
+        <div class="term-line term-welcome">
+          <span class="term-cyan">╭──────────────────────────────────────────────────────────╮</span><br>
+          <span class="term-cyan">│</span>  <strong>Sudhanshu's Interactive Developer Console v2.0</strong>        <span class="term-cyan">│</span><br>
+          <span class="term-cyan">│</span>  Type <span class="term-yellow">'help'</span> to see available commands.              <span class="term-cyan">│</span><br>
+          <span class="term-cyan">╰──────────────────────────────────────────────────────────╯</span>
+        </div>
+      </div>
+
+      <div class="terminal-input-row">
+        <span class="term-prompt">sudhanshu@dev:~$</span>
+        <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="type 'help'...">
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Developer Terminal Toggle Button -->
+  <button class="dev-terminal-toggle" id="dev-terminal-toggle" title="Open Interactive Developer CLI (Terminal)" aria-label="Open Terminal">
+    <span class="terminal-dot-pulse"></span>
+    <ion-icon name="terminal-outline"></ion-icon>
+    <span class="terminal-btn-text">Terminal</span>
+  </button>
+
+
+  <!--
     - SCRIPTS
   -->
 
-  <!-- Custom Site Logic & Navigation -->
+  <!-- Custom Site Logic, Navigation & Interactive Systems -->
   <script src="./assets/js/script.js"></script>
 
   <!-- Ionicons -->
